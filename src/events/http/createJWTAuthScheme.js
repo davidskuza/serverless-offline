@@ -54,7 +54,7 @@ export default function createAuthScheme(jwtOptions) {
         }
 
         if (
-          !jwtOptions.audience.includes(aud) &&
+          !jwtOptions.audience.some((a) => aud.includes(a)) &&
           !jwtOptions.audience.includes(clientId)
         ) {
           serverlessLog(`JWT Token not from correct audience`)
